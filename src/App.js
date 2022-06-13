@@ -17,7 +17,7 @@ function App() {
   // you'll need to track a city name, which starts as the city name of your choice.
   const [cityName, setCityName] = useState('Portland');
   // finally, you'll need an array of slogans, which could start out as ['The City of Excellence'] for example
-  const [slogans, setSlogans] = ['Home of the Trailblazers'];
+  const [slogans, setSlogans] = useState(['Home of the Trailblazers']);
 
   return (
     <div className="App">
@@ -36,24 +36,14 @@ function App() {
           
           In each Dropdown, pass as props the state handler functions defined above, so that these child components can manipulate parent state 
           */}
-          <select skylineId={ waterfrontId } onChange={(e) => setWaterfrontId(e.target.value)}>
-            <option value="1">Waterfront 1</option>
-            <option value="2">Waterfront 2</option>
-            <option value="3">Waterfront 3</option>
-          </select>
-          <select skylineId={ skylineId } onChange={(e) => setSkylineId(e.target.value)}>
-            <option value="1">Skyline 1</option>
-            <option value="2">Skyline 2</option>
-            <option value="3">Skyline 3</option>
-          </select>
-          <select skylineId={ castleId } onChange={(e) => setCastleId(e.target.value)}>
-            <option value="1">Castle 1</option>
-            <option value="2">Castle 2</option>
-            <option value="3">Castle 3</option>
-          </select>
+          <WaterfrontDropdown waterfrontId={ waterfrontId } setWaterfrontId={ setWaterfrontId } />
+          <SkylineDropdown skylineId={ skylineId } setSkylineId={ setSkylineId } />
+          <CastleDropdown castleId={ castleId } setCastleId={ setCastleId } />
         </section>
         {/* here, the SloganForm component takes in the setSlogans state handler function and the slogans array that live in state */}
+        <SloganForm setSlogans={ setSlogans } slogans={ slogans } useState={ useState } />
         {/* here, the SloganList component takes the array of slogans that lives in state */}
+        <SloganList slogans={ slogans } />
 
       </div>
     </div>
