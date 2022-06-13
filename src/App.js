@@ -18,6 +18,7 @@ function App() {
   const [cityName, setCityName] = useState('Portland');
   // finally, you'll need an array of slogans, which could start out as ['The City of Excellence'] for example
   const [slogans, setSlogans] = useState(['Home of the Trailblazers']);
+  const [sloganInForm, setSloganInForm] = useState(''); 
 
   return (
     <div className="App">
@@ -41,7 +42,7 @@ function App() {
           <CastleDropdown castleId={ castleId } setCastleId={ setCastleId } />
         </section>
         {/* here, the SloganForm component takes in the setSlogans state handler function and the slogans array that live in state */}
-        <SloganForm setSlogans={ setSlogans } slogans={ slogans } useState={ useState } />
+        <SloganForm setSlogans={ setSlogans } slogans={ slogans } sloganInForm={ sloganInForm } setSloganInForm={ setSloganInForm } />
         {/* here, the SloganList component takes the array of slogans that lives in state */}
         <SloganList slogans={ slogans } />
 
